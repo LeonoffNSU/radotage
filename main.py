@@ -1,5 +1,11 @@
+'''
+Elizarev Yaroslav - 80
+Leonov Kirill -
+'''
+
 from random import randint
-c = 0
+
+cnt = 0
 
 with open('Преступление и наказание.txt', encoding='utf-8') as text_lit:
     number_of_sentence = int(text_lit.readline())
@@ -7,10 +13,9 @@ with open('Преступление и наказание.txt', encoding='utf-8'
 
     for line in text_lit:
         text_str = line 
-        text_str = text_str.replace('', '')
         sentence_list = text_str.split()
 
-        if c > 0:
+        if cnt > 0:
             if sentence_list != [] and prev_sentence != []:
                 if prev_sentence[-1] in dict_of_words.keys():
                     dict_of_words[prev_sentence[-1]].append(sentence_list[0])
@@ -23,7 +28,7 @@ with open('Преступление и наказание.txt', encoding='utf-8'
                     dict_of_words[sentence_list[index]].append(sentence_list[index + 1])
                 else:
                     dict_of_words[sentence_list[index]] = [sentence_list[index + 1]]
-        c += 1
+        cnt += 1
         prev_sentence = sentence_list
 
 counter = number_of_sentence
