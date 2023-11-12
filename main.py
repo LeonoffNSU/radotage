@@ -1,7 +1,7 @@
 from random import randint
 c = 0
 
-with open('Generation-П.txt', encoding='utf-8') as text_lit:
+with open('Преступление и наказание.txt', encoding='utf-8') as text_lit:
     number_of_sentence = int(text_lit.readline())
     dict_of_words = {}
 
@@ -26,11 +26,26 @@ with open('Generation-П.txt', encoding='utf-8') as text_lit:
         c += 1
         prev_sentence = sentence_list
 
-for sent in range(number_of_sentence):
-    word = list(dict_of_words.keys())[randint(0, len(dict_of_words.keys()))]
-    print(word[0].upper() + word[1:], end= ' ')
+counter = number_of_sentence
+try:
+    for sent in range(number_of_sentence):
+        word = list(dict_of_words.keys())[randint(0, len(dict_of_words.keys()))]
+        print(word[0].upper() + word[1:], end=' ')
+        counter -= 1
 
-    while word[-1] not in ['.', '!', '?']:
-        word = dict_of_words[word][randint(0, len(dict_of_words[word])) - 1]
-        print(word, end=' ')
-    
+        while word[-1] not in ['.', '!', '?']:
+            word = dict_of_words[word][randint(0, len(dict_of_words[word])) - 1]
+            print(word, end=' ')
+except KeyError:
+    try:
+        print('.', end=' ')
+        for sent in range(counter):
+            word = list(dict_of_words.keys())[randint(0, len(dict_of_words.keys()))]
+            print(word[0].upper() + word[1:], end=' ')
+
+            while word[-1] not in ['.', '!', '?']:
+                word = dict_of_words[word][randint(0, len(dict_of_words[word])) - 1]
+                print(word, end=' ')
+    except KeyError:
+        print()
+        print('Случилась ошибка, запустите программу еще раз :)')
