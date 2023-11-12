@@ -1,6 +1,6 @@
 '''
 Elizarev Yaroslav - 80
-Leonov Kirill -
+Leonov Kirill - 50
 '''
 
 from random import randint
