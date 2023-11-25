@@ -1,5 +1,5 @@
 '''
-Elizarev Yaroslav - 80
+Elizarev Yaroslav - 90
 Leonov Kirill - 50
 '''
 
